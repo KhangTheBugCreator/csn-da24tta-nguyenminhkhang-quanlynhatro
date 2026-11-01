@@ -46,7 +46,7 @@
 | 12 | `Dich_vu` | Dịch vụ đi kèm |
 | 13 | `Chi_tiet_dich_vu` | Dịch vụ sử dụng trong từng hóa đơn |
 
-Chi tiết thuộc tính, kiểu dữ liệu, 9 mối quan hệ và các ràng buộc toàn vẹn: xem `docs/Chi_Tiet_Thuc_The_Rang_buoc_Quan_he.docx`.
+Chi tiết thuộc tính, kiểu dữ liệu, 9 mối quan hệ và các ràng buộc toàn vẹn: xem `thesis/doc/Chi_Tiet_Thuc_The&Rang_buoc&Quan_he.docx`.
 
 ---
 
@@ -56,26 +56,16 @@ Chi tiết thuộc tính, kiểu dữ liệu, 9 mối quan hệ và các ràng b
 - T-SQL: bảng, khóa chính/ngoại, CHECK, UNIQUE, view, stored procedure, trigger
 - Công cụ vẽ ERD: draw.io / StarUML (tuần 2)
 
-**Cấu trúc thư mục chính (dự kiến, cập nhật dần theo tiến độ):**
+**Cấu trúc thư mục chính:**
 ```
 .
-├── docs/                          # Tài liệu đồ án
-│   ├── DeCuong_CSN.docx           # Đề cương chi tiết
-│   ├── BaoCaoTienDo_TuanX.docx    # Báo cáo tiến độ từng tuần
-│   ├── Yeu_cau_quan_ly.docx       # Phân tích yêu cầu quản lý (tuần 1)
-│   ├── Chi_Tiet_Thuc_The_...docx  # Thực thể, ràng buộc, quan hệ (tuần 1)
-│   └── ERD.png                    # Sơ đồ thực thể - liên kết (tuần 2)
-├── database/                      # Script SQL (tuần 3)
-│   ├── 01_create_database.sql     # Tạo CSDL
-│   ├── 02_create_tables.sql       # Tạo bảng, khóa chính, khóa ngoại
-│   ├── 03_constraints.sql         # CHECK, UNIQUE, trigger ràng buộc nghiệp vụ
-│   ├── 04_seed_data.sql           # Dữ liệu mẫu
-│   └── 05_views_procedures.sql    # View, stored procedure nghiệp vụ
-├── queries/                       # Bộ câu truy vấn minh họa (tuần 3)
-│   ├── 01_tra_cuu.sql             # Tra cứu nhà trọ, phòng, sinh viên, hợp đồng
-│   ├── 02_nghiep_vu.sql           # Tìm phòng trống, lập hóa đơn, thanh toán
-│   └── 03_thong_ke.sql            # Doanh thu, công nợ, điện nước
-└── README.md                      # Giới thiệu đồ án
+├── progress-report/                                  # Báo cáo tiến độ từng tuần
+│   └── 110124083_NguyenMinhKhang_BaoCaoTienDoTuan1.docx  # Báo cáo tiến độ tuần 1
+├── thesis/                                           # Tài liệu đồ án
+│   └── doc/
+│       ├── Yêu cầu quản lý.docx                      # Phân tích yêu cầu quản lý (tuần 1)
+│       └── Chi_Tiet_Thuc_The&Rang_buoc&Quan_he.docx  # Thực thể, ràng buộc, quan hệ (tuần 1)
+└── README.md                                         # Giới thiệu đồ án
 ```
 
 ---
@@ -110,7 +100,7 @@ git clone <repo-url>
 cd <project-folder>
 ```
 
-2. Mở SSMS, kết nối tới SQL Server và chạy lần lượt các script trong thư mục `database/`:
+2. Mở SSMS, kết nối tới SQL Server và chạy lần lượt các script SQL (sẽ bổ sung vào repo ở tuần 3):
 ```
 01_create_database.sql
 02_create_tables.sql
@@ -119,4 +109,4 @@ cd <project-folder>
 05_views_procedures.sql
 ```
 
-3. Chạy các câu truy vấn minh họa trong thư mục `queries/` để xem kết quả tra cứu và thống kê.
+3. Chạy các câu truy vấn minh họa để xem kết quả tra cứu và thống kê.
