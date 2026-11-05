@@ -28,6 +28,7 @@
 - Thanh toán & công nợ: thanh toán nhiều lần, trạng thái Chưa thanh toán / Đã thanh toán / Thanh toán một phần.
 - Tra cứu: phòng trống theo khu vực, khoảng giá, diện tích, loại phòng; sinh viên đang ở đâu; hợp đồng sắp hết hạn.
 - Thống kê: số phòng theo trạng thái, số sinh viên theo trường/quê quán, điện nước tiêu thụ, doanh thu theo tháng/năm, danh sách nợ quá hạn.
+- Tài khoản & phân quyền (phục vụ web demo): đăng nhập theo 3 vai trò Quản trị viên / Chủ trọ / Sinh viên; chủ trọ chỉ thấy dữ liệu nhà trọ của mình, sinh viên chỉ thấy hợp đồng và hóa đơn của mình.
 
 ### **Thiết kế dữ liệu (đã xác định ở tuần 1):**
 | # | Bảng | Ý nghĩa |
@@ -45,6 +46,13 @@
 | 11 | `Thanh_toan` | Các lần thanh toán của hóa đơn |
 | 12 | `Dich_vu` | Dịch vụ đi kèm |
 | 13 | `Chi_tiet_dich_vu` | Dịch vụ sử dụng trong từng hóa đơn |
+| 14 | `Tai_khoan` | Tài khoản đăng nhập web, phân quyền Quản trị viên / Chủ trọ / Sinh viên (bổ sung tuần 2) |
+
+**Bảng `Tai_khoan` (bổ sung tuần 2):** `Tai_khoan(maTaiKhoan, tenDangNhap, matKhauHash, vaiTro, trangThai, ngayTao, maChuTro, maSv)`
+- `tenDangNhap` duy nhất; mật khẩu chỉ lưu dạng băm (`matKhauHash`), tối thiểu 8 ký tự khi nhập.
+- `vaiTro` ∈ {Quản trị viên, Chủ trọ, Sinh viên}; `trangThai` ∈ {Hoạt động, Bị khóa}.
+- `maChuTro` → `Chu_nha_tro`, `maSv` → `Sinh_vien` (cho phép NULL, duy nhất khi khác NULL): quan hệ 1–1, mỗi chủ trọ / sinh viên có tối đa một tài khoản. Vai trò phải khớp với khóa liên kết (Quản trị viên thì cả hai NULL).
+- Phụ thuộc hàm: `maTaiKhoan` → các thuộc tính còn lại; `tenDangNhap` → `maTaiKhoan`; `maChuTro` → `maTaiKhoan`, `maSv` → `maTaiKhoan` (khi khác NULL). Đạt BCNF.
 
 Chi tiết thuộc tính, kiểu dữ liệu, 9 mối quan hệ và các ràng buộc toàn vẹn: xem `thesis/doc/Chi_Tiet_Thuc_The&Rang_buoc&Quan_he.docx`.
 
